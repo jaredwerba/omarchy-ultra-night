@@ -1,0 +1,60 @@
+#!/bin/bash
+# Apply OCR-A while darknite is the theme. Restore the previous
+# monospace when another theme is set. Missing bar icons fall back to
+# JetBrainsMono Nerd Font, because OCR-A has no nerd glyphs.
+
+set -u
+
+theme="${1:-}"
+state_dir="${XDG_STATE_HOME:-$HOME/.local/state}/omarchy"
+state_file="$state_dir/darknite-previous-font"
+fontconfig_file="$HOME/.config/fontconfig/fonts.conf"
+nerd_fallback="JetBrainsMono Nerd Font"
+
+write_ocra_fontconfig() {
+  mkdir -p "$(dirname "$fontconfig_file")"
+  cat >"$fontconfig_file" <<XML
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+  <match target="pattern">
+    <test name="family" qual="any">
+      <string>monospace</string>
+    </test>
+    <edit name="family" mode="prepend_first" binding="strong">
+      <string>OCRA</string>
+    </edit>
+  </match>
+  <match target="pattern">
+    <test name="family">
+      <string>OCRA</string>
+    </test>
+    <edit name="family" mode="append">
+      <string>${nerd_fallback}</string>
+    </edit>
+  </match>
+</fontconfig>
+XML
+}
+
+if [[ $theme == "darknite" ]]; then
+  if ! fc-list | grep -Fqi "OCRA"; then
+    echo "darknite: OCRA is not installed" >&2
+    exit 0
+  fi
+  current="$(omarchy font current 2>/dev/null || true)"
+  if [[ -n $current && $current != "OCRA" ]]; then
+    mkdir -p "$state_dir"
+    printf '%s\n' "$current" >"$state_file"
+  fi
+  omarchy font set OCRA
+  write_ocra_fontconfig
+  omarchy-restart-shell >/dev/null 2>&1 || true
+else
+  if [[ -f $state_file ]]; then
+    previous="$(head -n 1 "$state_file")"
+    if [[ -n $previous && $previous != "OCRA" ]]; then
+      omarchy font set "$previous" || true
+    fi
+  fi
+fi

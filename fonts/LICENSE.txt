@@ -1,0 +1,12 @@
+John Sauter's OCR-A, released into the public domain in 2004.
+
+Source: http://sourceforge.net/projects/ocr-a-font
+Debian package fonts-ocr-a records the same terms:
+
+  Copyright 2004 John Sauter
+  License: public-domain
+  This software is released into the public domain.
+
+The shapes follow ANSI X3.17-1977. The outlines were traced by John
+Sauter from the Metafont work of Tor Lillqvist and Richard B. Wales.
+This theme ships OCRA.ttf only.

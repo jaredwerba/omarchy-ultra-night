@@ -1,0 +1,3 @@
+# OCR-A is a stencil face. 14px keeps the strokes open on the M1 Air
+# at scale 2 (227 ppi) without blowing the bar up to a display size.
+base-size = 14

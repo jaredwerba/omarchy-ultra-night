@@ -1,0 +1,53 @@
+# darknite — Apple Watch Ultra night mode, tuned for sundown on a
+# 2020 M1 MacBook Air.
+#
+# The digit red in the night-mode face is #FF0000. Every other hex is
+# that same red with green and blue held at 0. This panel is a 400-nit
+# LED-backlit IPS, not OLED, and Hyprland color-manages it as sRGB.
+# The P3 red primary is more saturated than sRGB red, but naming it
+# from here would drive the green and blue subpixels. #FF0000 is the
+# purest red this pipeline can put on the glass.
+#
+# The watch's darkest reds (#080000, #140000) fall under the IPS black
+# floor and under dusk reflection on the glossy panel, so surfaces and
+# secondary text are lifted to sampled intensities that still read.
+# Bright roles stay on the sampled bright cluster.
+
+mode = "dark"
+
+accent = "#FF0000"
+selection = "#410000"
+muted = "#5E0000"
+
+background = "#000000"
+dark_background = "#1A0000"
+darker_background = "#000000"
+lighter_background = "#2B0000"
+
+foreground = "#FF0000"
+dark_foreground = "#8C0000"
+light_foreground = "#F70000"
+bright_foreground = "#FF0000"
+
+# Loud roles: the bright cluster from the face.
+# Quiet roles: dial intensities that clear this IPS.
+red = "#FF0000"
+orange = "#F70000"
+yellow = "#E60000"
+green = "#CF0000"
+cyan = "#720000"
+blue = "#7F0000"
+magenta = "#EF0000"
+brown = "#5E0000"
+
+bright_red = "#FF0000"
+bright_yellow = "#FC0000"
+bright_green = "#DB0000"
+bright_cyan = "#8C0000"
+bright_blue = "#8C0000"
+bright_magenta = "#F70000"
+
+# Used when Omarchy regenerates hyprland.lua (a git install drops a
+# shipped .lua). Inactive must not fall back to the stock grey.
+hyprland_active_border = "rgba(ff0000ff)"
+hyprland_inactive_border = "rgba(410000ff)"
