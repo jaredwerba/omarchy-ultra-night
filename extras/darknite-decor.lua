@@ -1,10 +1,9 @@
--- Apple continuous corners for darknite only.
--- macOS system windows use a 10pt radius. The curve is continuous
--- (a squircle, rounding_power 4), not a circular arc.
+-- Apple continuous corners and 8px edge blur for Ultra Night.
+-- One theme. The folder name is ultra-night.
 --
 -- OmaSettings turns blur on after a theme's hyprland.lua loads, and a
 -- theme installed from git is not allowed to ship Lua. This module runs
--- last. It applies only while darknite is current. Another theme reloads
+-- last. It applies only while ultra-night is current. Another theme reloads
 -- OmaSettings first, and this block returns before touching blur.
 
 local theme_name_file = (os.getenv("HOME") or "") .. "/.local/state/omarchy/current/theme.name"
@@ -16,7 +15,7 @@ if handle then
   handle:close()
 end
 
-if current ~= "darknite" and current ~= "ultra-night" then
+if current ~= "ultra-night" then
   return
 end
 
