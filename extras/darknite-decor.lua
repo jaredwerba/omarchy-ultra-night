@@ -1,4 +1,6 @@
--- 8px edge blur for darknite only.
+-- Apple continuous corners for darknite only.
+-- macOS system windows use a 10pt radius. The curve is continuous
+-- (a squircle, rounding_power 4), not a circular arc.
 --
 -- OmaSettings turns blur on after a theme's hyprland.lua loads, and a
 -- theme installed from git is not allowed to ship Lua. This module runs
@@ -20,12 +22,22 @@ end
 
 hl.config({
   decoration = {
-    rounding = 0,
+    rounding = 10,
+    rounding_power = 4.0,
     active_opacity = 1.0,
     inactive_opacity = 1.0,
     dim_inactive = false,
+    -- A faint red rim. Offset is zero so it hugs the border instead of
+    -- dropping. The falloff is steep so the black field stays black.
     shadow = {
-      enabled = false,
+      enabled = true,
+      range = 6,
+      render_power = 4,
+      sharp = false,
+      offset = { 0, 0 },
+      scale = 1.0,
+      color = "rgba(ff000024)",
+      color_inactive = "rgba(ff000012)",
     },
     blur = {
       enabled = true,
