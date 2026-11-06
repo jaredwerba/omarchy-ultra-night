@@ -20,7 +20,7 @@ Omarchy will not change the system monospace from a theme file. `extras/theme-se
 
 ## Blur
 
-Window-edge blur is 2px. A theme cloned from git cannot ship Lua, so Omarchy will not load a blur setting from this repo. `extras/darknite-decor.lua` is the module that applies it, and only while darknite is the current theme.
+Window-edge blur is 8px. A theme cloned from git cannot ship Lua, so Omarchy will not load a blur setting from this repo. `extras/darknite-decor.lua` is the module that applies it, and only while darknite is the current theme.
 
 ## Install
 

@@ -1,7 +1,7 @@
 -- darknite. Apple Watch Ultra night mode.
 -- Active border is the digit red. Inactive border is the lifted dial red.
 -- A git install drops this file. colors.toml carries the same border
--- colors so the generated file stays red. The 2px blur lives in
+-- colors so the generated file stays red. The 8px blur lives in
 -- extras/darknite-decor.lua because Omarchy will not stage Lua from git.
 
 local active_border_color = "rgba(ff0000ff)"

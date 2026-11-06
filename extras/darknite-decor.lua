@@ -1,4 +1,4 @@
--- 2px edge blur for darknite only.
+-- 8px edge blur for darknite only.
 --
 -- OmaSettings turns blur on after a theme's hyprland.lua loads, and a
 -- theme installed from git is not allowed to ship Lua. This module runs
@@ -29,7 +29,7 @@ hl.config({
     },
     blur = {
       enabled = true,
-      size = 2,
+      size = 8,
       passes = 1,
       noise = 0.0,
       xray = true,
