@@ -2,6 +2,15 @@
 
 An Omarchy theme inspired by the Apple Watch Ultra.
 
+Install from a terminal:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/jaredwerba/omarchy-ultra-night/main/install.sh -o /tmp/ultra-night-install.sh
+bash /tmp/ultra-night-install.sh
+```
+
+That script installs the theme, OCR-A, the 8px blur, the continuous corners, and the red rim. It replaces `~/.config/omarchy/themes/ultra-night` if that folder is already there. The script is `install.sh` in this repo.
+
 The watch face in night mode is a black field and one red. That red is #FF0000. Every other color in this theme is the same red, turned down. Green and blue stay at zero, so the screen does not put out the light that ruins night vision after the sun is down.
 
 ## This display
@@ -24,7 +33,9 @@ Window-edge blur is 8px. Corners are a 10px continuous curve, the same kind Appl
 
 ## Install
 
-A fresh install lands in `~/.config/omarchy/themes/ultra-night`. Omarchy shows that as Ultra Night.
+Run the command at the top of this page. It is the whole install.
+
+What it does, if you want to do the steps yourself:
 
 ```bash
 omarchy theme install https://github.com/jaredwerba/omarchy-ultra-night.git
