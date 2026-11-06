@@ -16,7 +16,7 @@ if handle then
   handle:close()
 end
 
-if current ~= "darknite" then
+if current ~= "darknite" and current ~= "ultra-night" then
   return
 end
 

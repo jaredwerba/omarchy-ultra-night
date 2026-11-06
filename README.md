@@ -1,6 +1,6 @@
-# darknite
+# Omarchy Ultra Night
 
-An Omarchy theme based on the Apple Watch Ultra night mode, made for sundown.
+An Omarchy theme inspired by the Apple Watch Ultra.
 
 The watch face in night mode is a black field and one red. That red is #FF0000. Every other color in this theme is the same red, turned down. Green and blue stay at zero, so the screen does not put out the light that ruins night vision after the sun is down.
 
@@ -20,17 +20,19 @@ Omarchy will not change the system monospace from a theme file. `extras/theme-se
 
 ## Blur
 
-Window-edge blur is 8px. A faint red glow sits on the border, centered, so it reads as a rim rather than a drop shadow. A theme cloned from git cannot ship Lua, so Omarchy will not load these from this repo. `extras/darknite-decor.lua` applies them, and only while darknite is the current theme.
+Window-edge blur is 8px. Corners are a 10px continuous curve, the same kind Apple uses on system windows, not a circular cut. A faint red glow sits on the border, centered, so it reads as a rim rather than a drop shadow. A theme cloned from git cannot ship Lua, so Omarchy will not load these from this repo. `extras/darknite-decor.lua` applies them while the theme is current.
 
 ## Install
 
+A fresh install lands in `~/.config/omarchy/themes/ultra-night`. Omarchy shows that as Ultra Night.
+
 ```bash
-omarchy theme install https://github.com/jaredwerba/omarchy-darknite-theme.git
+omarchy theme install https://github.com/jaredwerba/omarchy-ultra-night.git
 mkdir -p ~/.local/share/fonts/ocr-a
-cp ~/.config/omarchy/themes/darknite/fonts/OCRA.ttf ~/.local/share/fonts/ocr-a/
+cp ~/.config/omarchy/themes/ultra-night/fonts/OCRA.ttf ~/.local/share/fonts/ocr-a/
 fc-cache -f ~/.local/share/fonts/ocr-a
-omarchy hook install theme-set ~/.config/omarchy/themes/darknite/extras/theme-set-font
-cp ~/.config/omarchy/themes/darknite/extras/darknite-decor.lua ~/.config/hypr/darknite-decor.lua
+omarchy hook install theme-set ~/.config/omarchy/themes/ultra-night/extras/theme-set-font
+cp ~/.config/omarchy/themes/ultra-night/extras/darknite-decor.lua ~/.config/hypr/darknite-decor.lua
 ```
 
 Add this at the end of `~/.config/hypr/hyprland.lua`, after `require("hypr.omasettings")`:
@@ -42,5 +44,5 @@ require("hypr.darknite-decor")
 Then:
 
 ```bash
-omarchy theme set darknite
+omarchy theme set ultra-night
 ```
